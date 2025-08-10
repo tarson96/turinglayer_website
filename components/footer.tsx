@@ -20,8 +20,8 @@ export default function Footer() {
               <span className="font-bold text-xl">TuringLayer</span>
             </Link>
 
-            <p className="text-gray-400 max-w-xs mt-4">
-              Building decentralized AI solutions that empower users to own their data and control their AI.
+            <p className="text-gray-400 max-w-xs ">
+            AI. Decentralization. Web3.
             </p>
 
             <div className="flex justify-center md:justify-start space-x-4 mt-6">
@@ -66,8 +66,8 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/web3" className="text-gray-400 hover:text-white">
-                    Web3
+                  <a href="/products" className="text-gray-400 hover:text-white">
+                    Products
                   </a>
                 </li>
                 <li>

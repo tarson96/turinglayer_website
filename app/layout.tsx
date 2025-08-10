@@ -9,7 +9,18 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "TuringLayer | AI and distributed systems",
   description: "Exploring the frontiers of artificial intelligence research and innovation",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '48x48' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ]
+  },
+  manifest: '/site.webmanifest'
 }
 
 export default function RootLayout({

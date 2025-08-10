@@ -20,48 +20,28 @@ export default function ProductsPage() {
   const products = [
     {
       id: 1,
-      name: "NeuralSense",
-      type: "Mobile Application",
+      name: "CheapCuda",
+      type: "GPU Compute Platform",
       description:
-        "An AI-powered personal assistant that learns from user behavior to provide increasingly personalized recommendations and automation.",
+        "The most affordable GPU compute platform in India & Asia. Access high-end GPUs like A100 and RTX 3090 for AI training and machine learning at up to 60% lower cost than major cloud providers.",
       features: [
-        "Personalized AI assistant",
-        "Cross-platform synchronization",
-        "Voice and natural language processing",
-        "Offline capabilities",
+        "H200, H100, RTX 4090 and other high-performance GPUs",
+        "Up to 60% cheaper than cloud providers",
+        "Simple INR/USD payments",
+        "Optimized for AI/ML workloads",
+        "Mobile-friendly web interface",
+        "Multiple payment options including UPI",
+        "Instant GPU access and deployment",
+        "Dedicated support"
       ],
-      image: "/futuristic-ai-mobile-app.png",
-      icon: <Smartphone className="w-6 h-6" />,
-    },
-    {
-      id: 2,
-      name: "QuantumFlow",
-      type: "Web Platform",
-      description:
-        "A comprehensive data analysis platform that leverages quantum-inspired algorithms to process and visualize complex datasets.",
-      features: [
-        "Real-time data processing",
-        "Interactive visualizations",
-        "Quantum-inspired algorithms",
-        "Collaborative workspaces",
+      pricing: [
+        "A100 (40GB): Starting from ₹50/hour",
+        "RTX 3090: Starting from ₹25/hour", 
+        "Bulk discounts available",
+        "No setup fees or hidden costs"
       ],
-      image: "/complex-data-dashboard.png",
-      icon: <Globe className="w-6 h-6" />,
-    },
-    {
-      id: 3,
-      name: "CogniSphere",
-      type: "Enterprise Solution",
-      description:
-        "An enterprise-grade cognitive computing platform that integrates with existing systems to enhance decision-making processes.",
-      features: [
-        "Seamless system integration",
-        "Advanced predictive analytics",
-        "Customizable AI workflows",
-        "Comprehensive security features",
-      ],
-      image: "/placeholder-q33nc.png",
-      icon: <BarChart className="w-6 h-6" />,
+      image: "/p1.png",
+      icon: <Zap className="w-6 h-6" />,
     },
   ]
 
@@ -79,13 +59,9 @@ export default function ProductsPage() {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-1">
             <span className="text-gradient">Our Products</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Cutting-edge AI solutions designed to transform industries and enhance human capabilities. Our products
-            combine theoretical research with practical applications.
-          </p>
         </motion.div>
 
         <motion.div
@@ -111,12 +87,21 @@ export default function ProductsPage() {
                 reverse={index % 2 !== 0}
               />
             ))}
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={productsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-center"
+            >
+              <p className="text-xl text-gray-400">cooking... 🍳</p>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Integration Section */}
-      <section className="py-20 md:py-32 px-4 relative">
+      {/* <section className="py-20 md:py-32 px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -147,34 +132,8 @@ export default function ProductsPage() {
             />
           </div>
         </motion.div>
-      </section>
+      </section> */}
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto bg-black/30 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-white/10"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-lg text-gray-300 text-center mb-10 max-w-2xl mx-auto">
-            Schedule a demo with our team to see how our AI products can revolutionize your operations and drive growth.
-          </p>
-
-          <div className="flex justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-white text-black font-medium rounded-md flex items-center justify-center space-x-2 hover:bg-gray-100 transition-colors"
-            >
-              <span>Request a Demo</span>
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
 
       <Footer />
     </main>
@@ -188,6 +147,7 @@ interface ProductCardProps {
     type: string
     description: string
     features: string[]
+    pricing?: string[]
     image: string
     icon: React.ReactNode
   }
@@ -215,7 +175,7 @@ function ProductCard({ product, index, isInView, reverse = false }: ProductCardP
               src={product.image || "/placeholder.svg"}
               alt={product.name}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-contain transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-70" />
           </div>
@@ -246,13 +206,16 @@ function ProductCard({ product, index, isInView, reverse = false }: ProductCardP
           ))}
         </ul>
 
-        <motion.button
-          className="px-6 py-2 border border-white/20 rounded-md hover:bg-white/10 transition-colors"
+        <motion.a
+          href="https://www.cheapcuda.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-2 border border-white/20 rounded-md hover:bg-white/10 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
         >
-          Learn More
-        </motion.button>
+          Visit CheapCuda →
+        </motion.a>
       </div>
     </motion.div>
   )

@@ -45,7 +45,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex space-x-8">
             <NavLink href="/#mission">Mission</NavLink>
-            <NavLink href="/web3">Web3</NavLink>
+            <NavLink href="/products">Products</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </div>
 
@@ -96,8 +96,8 @@ export default function Navbar() {
                 <MobileNavLink href="#mission" onClick={() => setIsMenuOpen(false)}>
                   Mission
                 </MobileNavLink>
-                <MobileNavLink href="/web3" onClick={() => setIsMenuOpen(false)}>
-                  Web3
+                <MobileNavLink href="/products" onClick={() => setIsMenuOpen(false)}>
+                  Products
                 </MobileNavLink>
                 <MobileNavLink href="/contact" onClick={() => setIsMenuOpen(false)}>
                   Contact Us

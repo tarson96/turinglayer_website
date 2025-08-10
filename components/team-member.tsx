@@ -11,6 +11,8 @@ interface TeamMemberProps {
   image: string
   index: number
   isInView: boolean
+  twitterLink?: string;
+  linkedinLink?: string;
 }
 
 export default function TeamMember({ name, role, bio, image, index, isInView, twitterLink, linkedinLink}: TeamMemberProps) {
@@ -36,22 +38,19 @@ export default function TeamMember({ name, role, bio, image, index, isInView, tw
       <p className="text-gray-300">{bio}</p>
 
       <div className="mt-6 flex space-x-4">
-        <motion.a
-          href={twitterLink}
-          whileHover={{ scale: 1.1 }}
-          className="text-white/70 hover:text-white"
-          aria-label={`${name}'s Twitter profile`}
-        >
-          <Twitter className="w-5 h-5" />
-        </motion.a>
-        <motion.a
-          href={linkedinLink}
-          whileHover={{ scale: 1.1 }}
-          className="text-white/70 hover:text-white"
-          aria-label={`${name}'s LinkedIn profile`}
-        >
-          <Linkedin className="w-5 h-5" />
-        </motion.a>
+        {twitterLink && (
+          <motion.a
+            href={twitterLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.1 }}
+            className="text-white/70 hover:text-white transition-colors cursor-pointer"
+            aria-label={`${name}'s Twitter profile`}
+          >
+            <Twitter className="w-5 h-5" />
+          </motion.a>
+        )}
+       
         {/* <motion.a
           href="#"
           whileHover={{ scale: 1.1 }}
