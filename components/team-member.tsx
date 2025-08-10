@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Github, Linkedin, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 
 interface TeamMemberProps {
   name: string
@@ -11,11 +11,11 @@ interface TeamMemberProps {
   image: string
   index: number
   isInView: boolean
-  twitterLink?: string;
+  email?: string;
   linkedinLink?: string;
 }
 
-export default function TeamMember({ name, role, bio, image, index, isInView, twitterLink, linkedinLink}: TeamMemberProps) {
+export default function TeamMember({ name, role, bio, image, index, isInView, email, linkedinLink}: TeamMemberProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -38,16 +38,14 @@ export default function TeamMember({ name, role, bio, image, index, isInView, tw
       <p className="text-gray-300">{bio}</p>
 
       <div className="mt-6 flex space-x-4">
-        {twitterLink && (
+        {email && (
           <motion.a
-            href={twitterLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${email}`}
             whileHover={{ scale: 1.1 }}
             className="text-white/70 hover:text-white transition-colors cursor-pointer"
-            aria-label={`${name}'s Twitter profile`}
+            aria-label={`Email ${name}`}
           >
-            <Twitter className="w-5 h-5" />
+            <Mail className="w-5 h-5" />
           </motion.a>
         )}
        

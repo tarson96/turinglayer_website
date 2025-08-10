@@ -180,12 +180,7 @@ function ProductCard({ product, index, isInView, reverse = false }: ProductCardP
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-70" />
           </div>
 
-          <motion.div
-            className="absolute top-4 left-4 bg-black/30 backdrop-blur-sm rounded-full p-3 border border-white/20"
-            whileHover={{ scale: 1.1 }}
-          >
-            {product.icon}
-          </motion.div>
+          
         </motion.div>
       </div>
 

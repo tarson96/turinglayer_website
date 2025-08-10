@@ -323,7 +323,7 @@ export default function Home() {
       image="/me.png"
       index={1}
       isInView={teamInView}
-      twitterLink="https://twitter.com/tarunsoni"
+      email="tarun@turinglayer.com"
     />
   </div>
 </div>
